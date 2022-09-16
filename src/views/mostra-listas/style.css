@@ -1,0 +1,38 @@
+.minhasListas {
+  margin-bottom: 2rem;
+}
+
+.minhasListas input {
+  padding-left: 0;
+  padding-top: 1rem;
+  padding-bottom: 0;
+  font-size: 1rem;
+  color: #adadad;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+}
+
+table,
+th,
+td {
+  text-align: left;
+  border-collapse: collapse;
+  font-weight: 500;
+}
+
+thead th {
+  color: #7159c1;
+}
+
+th {
+  background-color: #121214;
+}
+
+tr:nth-child(even) {
+  background: #121214;
+}
+
+tr:nth-child(odd) {
+  background: #202024;
+}

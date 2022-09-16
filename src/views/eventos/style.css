@@ -1,0 +1,14 @@
+.eventos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flyer {
+  flex: 1 1 100px;
+}
+
+@media (max-width: 600px) {
+  .eventos {
+    column-gap: 0.7rem;
+  }
+}

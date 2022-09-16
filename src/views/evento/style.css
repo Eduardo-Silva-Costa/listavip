@@ -1,0 +1,15 @@
+.evento {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.flyer {
+  margin-right: 1rem;
+  max-width: 400px;
+}
+
+img {
+  width: 100%;
+  max-height: 80vh;
+}

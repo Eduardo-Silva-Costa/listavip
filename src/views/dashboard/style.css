@@ -1,0 +1,21 @@
+.dash {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard img {
+  width: 6rem;
+  border-radius: 50%;
+}
+
+.contente {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 720px) {
+  .contente {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,7 @@
+footer {
+  padding: 1rem;
+  background-color: #202024;
+
+  flex-grow: 0;
+  flex-basis: 100px;
+}
