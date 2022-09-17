@@ -16,9 +16,14 @@
 table,
 th,
 td {
-  text-align: left;
+  text-align: center;
   border-collapse: collapse;
   font-weight: 500;
+}
+
+th,
+td {
+  padding: 0.5rem;
 }
 
 thead th {

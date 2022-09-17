@@ -3,11 +3,13 @@ import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../../contexts/authContext'
 
+import { Link } from 'react-router-dom'
+
 import './style.css'
 
-export function MostraEventos() {
+export function MeusEventos() {
   const { usuario } = useContext(AuthContext)
-  const [eventoID, setEventoID] = useState('')
+  console.log(usuario.id)
   const [eventoData, setEventoData] = useState([])
 
   useEffect(() => {
@@ -17,7 +19,6 @@ export function MostraEventos() {
       const querySnapshot = await getDocs(q)
 
       querySnapshot.forEach((doc) => {
-        setEventoID(doc.id)
         setEventoData(querySnapshot.docs.map((doc) => ({ ...doc.data() })))
       })
     }
@@ -36,7 +37,6 @@ export function MostraEventos() {
             <th>Visualizações</th>
             <th>Data</th>
             <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -46,9 +46,8 @@ export function MostraEventos() {
                 <td>{evento.titulo}</td>
                 <td>{evento.publico == true ? 'Sim' : 'Não'}</td>
                 <td>{evento.visualizacoes}</td>
-                <td><input type="date" name="data" id="data" value={evento.data} disabled /></td>
-                <td><button className='btn--primary'>Ver Mais</button></td>
-                <td><button className='btn--danger'>Excluir</button></td>
+                <td>{evento.data}</td>
+                <td><Link className='btn' to="/ver-evento">Ver Mais</Link></td>
               </tr>
             );
           })}

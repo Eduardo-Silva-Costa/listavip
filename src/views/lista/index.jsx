@@ -15,15 +15,16 @@ export function Lista() {
   return (
     <main>
       <section className='lista'>
-        <Link to="/listas"><i className="bi bi-arrow-left-circle"> Voltar</i></Link>
-        <p>Titulo: {lista.titulo}</p>
-        <p>Detalhes: {lista.detalhes}</p>
-        <p>Data: {lista.data}</p>
+        <p><span>Titulo:</span> {lista.titulo}</p>
+        <p><span>Detalhes:</span></p>
+        <p>{lista.detalhes}</p>
+        <p><span>Data:</span> {lista.data}</p>
         <form>
           <label htmlFor="nome">Colocar nome na lista?</label>
           <input type="text" name="nome" id="nome" placeholder='Escreva seu nome completo aqui' />
           <button type='button' className='btn' onClick={message}>Colocar nome na lista agora</button>
         </form>
+        <Link to="/listas"><i className="bi bi-arrow-left-circle"> Voltar</i></Link>
       </section>
     </main>
   )

@@ -10,17 +10,16 @@ export function Evento() {
   return (
     <main>
       <section className='evento'>
-        <Link to="/"><i class="bi bi-arrow-left-circle"> Voltar</i></Link>
-        <div className="flyer">
-          <img src={evento.foto} alt="Flyer do Evento" />
-        </div>
+        <img src={evento.foto} alt="Flyer do Evento" />
         <div>
-          <p>Tipo: {evento.tipo}</p>
-          <p>Titulo: {evento.titulo}</p>
-          <p>Gênero: {evento.genero}</p>
-          <p>Data: {evento.data}</p>
-          <p>Hora: {evento.hora}</p>
-          <p>Detalhes: {evento.detalhes}</p>
+          <p><span>Tipo:</span> {evento.tipo}</p>
+          <p><span>Titulo:</span> {evento.titulo}</p>
+          <p><span>Gênero:</span> {evento.genero}</p>
+          <p><span>Data:</span> {evento.data}</p>
+          <p><span>Hora:</span> {evento.hora}</p>
+          <p><span>Detalhes:</span></p>
+          <p>{evento.detalhes}</p>
+          <Link className='bnt' to="/"><i class="bi bi-arrow-left-circle"> Voltar</i></Link>
         </div>
       </section>
     </main>

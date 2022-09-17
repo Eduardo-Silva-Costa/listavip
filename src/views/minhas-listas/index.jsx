@@ -3,9 +3,11 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../../contexts/authContext'
 
+import { Link } from 'react-router-dom'
+
 import './style.css'
 
-export function MostraListas() {
+export function MinhasListas() {
   const { usuario } = useContext(AuthContext)
   const [listaID, setListaID] = useState('')
   const [listaData, setListaData] = useState([])
@@ -36,7 +38,6 @@ export function MostraListas() {
             <th>Inscrições</th>
             <th>Data</th>
             <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -46,9 +47,8 @@ export function MostraListas() {
                 <td>{lista.titulo}</td>
                 <td>{lista.publico == true ? 'Sim' : 'Não'}</td>
                 <td>{lista.inscritos == {} ? 0 : 100}</td>
-                <td><input type="date" name="data" id="data" value={lista.data} disabled /></td>
-                <td><button className='btn--primary'>Ver mais</button></td>
-                <td><button className='btn--danger'>Excluir</button></td>
+                <td>{lista.data}</td>
+                <td><Link className='btn' to="/ver-lista">Ver Mais</Link></td>
               </tr>
             );
           })}

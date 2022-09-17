@@ -15,7 +15,7 @@ export function NovaLista() {
   const [titulo, setTitulo] = useState('')
   const [detalhes, setDetalhes] = useState('')
   const [data, setData] = useState('')
-  const usuarioID = usuario
+  const usuarioID = usuario.id
 
   async function cadastrar() {
 

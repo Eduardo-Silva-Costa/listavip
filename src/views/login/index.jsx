@@ -1,7 +1,7 @@
 import "./style.css";
 
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth, storage } from '../../services/firebase'
+import { auth } from '../../services/firebase'
 
 const provider = new GoogleAuthProvider();
 
@@ -19,7 +19,7 @@ export function Login() {
       const token = credential.accessToken;
       const user = result.user;
 
-      localStorage.setItem('user', JSON.stringify({ signed: true, id: user.uid, nome: user.displayName }))
+      localStorage.setItem('user', JSON.stringify({ signed: true, id: user.uid, nome: user.displayName, email: user.email }))
 
     }).catch((error) => {
       const errorCode = error.code;

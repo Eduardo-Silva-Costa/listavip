@@ -1,15 +1,15 @@
 .evento {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  column-gap: 1rem;
 }
 
-.flyer {
-  margin-right: 1rem;
-  max-width: 400px;
+.evento img {
+  height: 100%;
 }
 
-img {
-  width: 100%;
-  max-height: 80vh;
+@media (max-width: 900px) {
+  .evento {
+    flex-direction: column;
+    column-gap: 0.7rem;
+  }
 }

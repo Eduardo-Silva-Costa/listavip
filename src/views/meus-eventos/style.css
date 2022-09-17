@@ -16,3 +16,7 @@ tr:nth-child(even) {
   border: none;
   font-weight: 500;
 }
+
+.meusEventos a {
+  padding: 0.4rem 1rem;
+}

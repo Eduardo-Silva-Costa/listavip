@@ -4,9 +4,9 @@ import { useContext } from 'react'
 import { AuthContext } from '../../contexts/authContext'
 
 
-import { MostraEventos } from '../mostra-eventos'
+import { MeusEventos } from '../meus-eventos'
 import { NovoEvento } from '../novo-evento'
-import { MostraListas } from '../mostra-listas'
+import { MinhasListas } from '../minhas-listas'
 import { NovaLista } from '../nova-lista'
 
 import { Navigate } from 'react-router-dom'
@@ -16,6 +16,7 @@ export function Dashboard() {
 
   function deslogar() {
     localStorage.removeItem("user")
+    location.reload()
   }
 
   if (usuario.signed == true) {
@@ -27,9 +28,9 @@ export function Dashboard() {
             <button type='button' className='btn' onClick={deslogar}>Sair</button>
           </div>
           <div className="contente">
-            <MostraEventos />
+            <MeusEventos />
             <NovoEvento />
-            <MostraListas />
+            <MinhasListas />
             <NovaLista />
           </div>
         </section>

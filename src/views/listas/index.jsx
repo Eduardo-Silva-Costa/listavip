@@ -34,7 +34,7 @@ export function Listas() {
         <ul>
           {listas.map((lista) => {
             return (
-              <li><Link to="/listas/lista" onClick={() => setLista({
+              <li><Link to="/lista" onClick={() => setLista({
                 titulo: lista.titulo,
                 detalhes: lista.detalhes,
                 data: lista.data,

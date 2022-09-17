@@ -32,7 +32,7 @@ export function Eventos() {
         {eventos.map((evento) => {
           return (
             <div className="flyer">
-              <Link to="/eventos/evento">
+              <Link to="/evento">
                 <img src={evento.foto} alt="Flyer do Evento" onClick={() => setEvento({
                   titulo: evento.titulo,
                   tipo: evento.tipo,

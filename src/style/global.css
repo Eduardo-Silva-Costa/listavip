@@ -41,12 +41,21 @@ form {
   flex-direction: column;
 }
 
+input {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 button {
   cursor: pointer;
 }
 
 h2 {
   margin-bottom: 1rem;
+}
+
+p {
+  font-weight: 500;
 }
 
 i {

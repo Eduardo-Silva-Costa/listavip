@@ -25,7 +25,7 @@ export function NovoEvento() {
   const [hora, setHora] = useState('')
   const [censura, setCensura] = useState('')
   const [flyer, setFlyer] = useState('')
-  const usuarioID = usuario
+  const usuarioID = usuario.id
 
   function cadastrar() {
     const storageRef = ref(storage, `images/${flyer.name}`)
