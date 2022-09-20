@@ -22,10 +22,10 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Eventos />} />
-          <Route path='/evento' element={<Evento />} />
+          <Route path='/evento/:id' element={<Evento />} />
           <Route path='/ver-evento' element={<VerEvento />} />
           <Route path='/listas' element={<Listas />} />
-          <Route path='/lista' element={<Lista />} />
+          <Route path='/lista/:id' element={<Lista />} />
           <Route path='/ver-lista' element={<VerLista />} />
           <Route path='/sobre' element={<Sobre />} />
           <Route path='/contato' element={<Contato />} />

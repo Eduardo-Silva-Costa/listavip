@@ -26,7 +26,7 @@ export function NovaLista() {
       autor: usuarioID,
       publico: true,
       criacao: new Date(),
-      inscritos: {}
+      inscricoes: []
     });
 
     alert('Lista Publicada!')

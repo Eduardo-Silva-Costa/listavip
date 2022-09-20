@@ -4,6 +4,7 @@
 }
 
 .evento img {
+  max-width: 50vw;
   height: 100%;
 }
 
@@ -11,5 +12,11 @@
   .evento {
     flex-direction: column;
     column-gap: 0.7rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .evento img {
+    max-width: 100%;
   }
 }

@@ -1,12 +1,37 @@
 import './style.css'
 
+import { db } from '../../services/firebase';
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 
-import { EventoContext } from '../../contexts/eventoContext'
-import { useContext } from 'react'
-
 export function Evento() {
-  const { evento } = useContext(EventoContext)
+  const { id } = useParams()
+  const [evento, setEvento] = useState({})
+
+  useEffect(() => {
+    const docRef = doc(db, "eventos", id)
+    async function getEvento() {
+      const docSnap = await getDoc(docRef)
+
+      if (docSnap.exists()) {
+        setEvento(docSnap.data())
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+
+      let cont = docSnap.data().visualizacoes
+
+      await updateDoc(docRef, {
+        visualizacoes: cont + 1
+      });
+    }
+
+    getEvento()
+  }, [])
+
   return (
     <main>
       <section className='evento'>
