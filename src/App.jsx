@@ -23,10 +23,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Eventos />} />
           <Route path='/evento/:id' element={<Evento />} />
-          <Route path='/ver-evento' element={<VerEvento />} />
+          <Route path='/ver-evento/:id' element={<VerEvento />} />
           <Route path='/listas' element={<Listas />} />
           <Route path='/lista/:id' element={<Lista />} />
-          <Route path='/ver-lista' element={<VerLista />} />
+          <Route path='/ver-lista/:id' element={<VerLista />} />
           <Route path='/sobre' element={<Sobre />} />
           <Route path='/contato' element={<Contato />} />
           <Route path='/login' element={<Login />} />

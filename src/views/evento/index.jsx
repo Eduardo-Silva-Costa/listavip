@@ -2,9 +2,8 @@ import './style.css'
 
 import { db } from '../../services/firebase';
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 export function Evento() {
   const { id } = useParams()

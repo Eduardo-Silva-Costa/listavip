@@ -9,8 +9,7 @@ import './style.css'
 
 export function MinhasListas() {
   const { usuario } = useContext(AuthContext)
-  const [listaID, setListaID] = useState('')
-  const [listaData, setListaData] = useState([])
+  const [listas, setListas] = useState([])
 
   useEffect(() => {
     const listasRef = collection(db, "listas")
@@ -19,8 +18,8 @@ export function MinhasListas() {
       const querySnapshot = await getDocs(q)
 
       querySnapshot.forEach((doc) => {
-        setListaID(doc.id)
-        setListaData(querySnapshot.docs.map((doc) => ({ ...doc.data() })))
+        let evento = { id: doc.id, dados: doc.data() }
+        setListas(arr => [...arr, evento])
       })
     }
 
@@ -41,14 +40,14 @@ export function MinhasListas() {
           </tr>
         </thead>
         <tbody>
-          {listaData.map((lista) => {
+          {listas.map((lista) => {
             return (
               <tr>
-                <td>{lista.titulo}</td>
-                <td>{lista.publico == true ? 'Sim' : 'Não'}</td>
-                <td>{lista.inscritos == {} ? 0 : 100}</td>
-                <td>{lista.data}</td>
-                <td><Link className='btn' to="/ver-lista">Ver Mais</Link></td>
+                <td>{lista.dados.titulo}</td>
+                <td>{lista.dados.publico == true ? 'Sim' : 'Não'}</td>
+                <td>{lista.dados.inscricoes.length}</td>
+                <td>{lista.dados.data}</td>
+                <td><Link className='btn' to={`/ver-lista/${lista.id}`}>Ver Mais</Link></td>
               </tr>
             );
           })}
