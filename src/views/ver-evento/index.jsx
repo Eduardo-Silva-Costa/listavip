@@ -9,13 +9,13 @@ export function VerEvento() {
   const { id } = useParams()
   const [evento, setEvento] = useState({})
 
-  const [titulo, setTitulo] = useState(evento.titulo)
-  const [tipo, setTipo] = useState(evento.tipo)
-  const [genero, setGenero] = useState(evento.genero)
-  const [detalhes, setDetalhes] = useState(evento.detalhes)
-  const [data, setData] = useState(evento.data)
-  const [hora, setHora] = useState(evento.hora)
-  const [censura, setCensura] = useState(evento.censura)
+  const [titulo, setTitulo] = useState('')
+  const [tipo, setTipo] = useState('')
+  const [genero, setGenero] = useState('')
+  const [detalhes, setDetalhes] = useState('')
+  const [data, setData] = useState('')
+  const [hora, setHora] = useState('')
+  const [censura, setCensura] = useState('')
 
   const docRef = doc(db, "eventos", id)
   useEffect(() => {
@@ -43,8 +43,8 @@ export function VerEvento() {
   }, [])
 
   async function atualizar() {
-
     var res = confirm('Tem certeza quer atualizar as informações do evento?')
+
     if (res == true) {
       await updateDoc(docRef, {
         titulo: titulo,

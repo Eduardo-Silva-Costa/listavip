@@ -1,7 +1,7 @@
 import './style.css'
 
 import { db } from '../../services/firebase'
-import { doc, getDoc, updateDoc } from "firebase/firestore"
+import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore"
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -21,7 +21,6 @@ export function Lista() {
 
       if (docSnap.exists()) {
         setLista(docSnap.data())
-        setInscricoes(docSnap.data().inscricoes)
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
@@ -31,10 +30,8 @@ export function Lista() {
   }, [])
 
   async function inscrever() {
-    setInscricoes([...inscricoes, nome])
-
     await updateDoc(docRef, {
-      inscricoes: inscricoes
+      inscricoes: arrayUnion(nome)
     })
 
     alert("Agora seu nome está na lista")

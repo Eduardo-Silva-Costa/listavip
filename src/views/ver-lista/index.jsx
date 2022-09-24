@@ -12,6 +12,7 @@ export function VerLista() {
   const [titulo, setTitulo] = useState('')
   const [detalhes, setDetalhes] = useState('')
   const [data, setData] = useState('')
+  const [inscricoes, setInscricoes] = useState(0)
 
   const docRef = doc(db, "listas", id)
   useEffect(() => {
@@ -20,11 +21,12 @@ export function VerLista() {
       const docSnap = await getDoc(docRef)
 
       if (docSnap.exists()) {
-        setLista(docSnap.data())
+        setLista({ id: docSnap.id, dados: docSnap.data() })
 
-        setTitulo(lista.titulo)
-        setDetalhes(lista.detalhes)
-        setData(lista.data)
+        setTitulo(lista.dados.titulo)
+        setDetalhes(lista.dados.detalhes)
+        setData(lista.dados.data)
+        setInscricoes(lista.dados.inscricoes.length)
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
@@ -35,7 +37,6 @@ export function VerLista() {
   }, [])
 
   async function atualizar() {
-
     var res = confirm('Tem certeza quer atualizar as informações da lista?')
     if (res == true) {
       await updateDoc(docRef, {
@@ -59,6 +60,8 @@ export function VerLista() {
           <textarea name="detalhes" id="detalhes" cols="30" rows="5" value={detalhes} onChange={(e) => setDetalhes(e.target.value)}></textarea>
           <label htmlFor="hora">Data:</label>
           <input type="date" name="data" id="data" value={data} onChange={(e) => setData(e.target.value)} />
+          <p>Inscrições: {inscricoes}</p>
+          <Link to={`/inscricoes/${lista.id}`} className='btn'>Ver Inscritos</Link>
           <button type='button' className='btn__upload' onClick={atualizar}>Atualizar Lista</button>
           <button type='button' className='danger' >Excluir Lista</button>
         </form>

@@ -45,7 +45,7 @@ export function MeusEventos() {
                 <td>{evento.dados.titulo}</td>
                 <td>{evento.dados.visualizacoes}</td>
                 <td>{evento.dados.data}</td>
-                <td><Link className='btn' to={`/ver-evento/${evento.id}`}>Ver Mais</Link></td>
+                <td><Link className='btn' to={`/ver-evento/${evento.id}`}>Detalhes</Link></td>
               </tr>
             );
           })}

@@ -45,7 +45,7 @@ export function MinhasListas() {
                 <td>{lista.dados.titulo}</td>
                 <td>{lista.dados.inscricoes.length}</td>
                 <td>{lista.dados.data}</td>
-                <td><Link className='btn' to={`/ver-lista/${lista.id}`}>Ver Mais</Link></td>
+                <td><Link className='btn' to={`/ver-lista/${lista.id}`}>Detalhes</Link></td>
               </tr>
             );
           })}
