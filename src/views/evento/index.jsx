@@ -31,6 +31,11 @@ export function Evento() {
     getEvento()
   }, [])
 
+  function volta() {
+
+    window.history.back();
+  }
+
   return (
     <main>
       <section className='evento'>
@@ -43,7 +48,7 @@ export function Evento() {
           <p><span>Hora:</span> {evento.hora}</p>
           <p><span>Detalhes:</span></p>
           <p>{evento.detalhes}</p>
-          <Link className='bnt' to="/"><i class="bi bi-arrow-left-circle"> Voltar</i></Link>
+          <button type='button' className='btn' onClick={volta}><i className="bi bi-arrow-left-circle"></i> Voltar</button>
         </div>
       </section>
     </main>

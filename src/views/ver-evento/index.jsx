@@ -1,7 +1,7 @@
 import './style.css'
 
 import { db } from '../../services/firebase';
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from 'react'
 
@@ -60,6 +60,11 @@ export function VerEvento() {
     }
   }
 
+  function volta() {
+
+    window.history.back();
+  }
+
   return (
     <main>
       <section className='upload'>
@@ -111,7 +116,7 @@ export function VerEvento() {
           <button type='button' className='btn__upload' onClick={atualizar}>Atualizar Evento</button>
           <button type='button' className='danger' >Excluir Evento</button>
         </form>
-        <Link to="/dashboard"><i className="bi bi-arrow-left-circle"> Voltar</i></Link>
+        <button type='button' className='btn' onClick={volta}><i className="bi bi-arrow-left-circle"></i> Voltar</button>
       </section>
     </main>
   )

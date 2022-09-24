@@ -37,6 +37,11 @@ export function Lista() {
     alert("Agora seu nome está na lista")
   }
 
+  function volta() {
+
+    window.history.back();
+  }
+
   return (
     <main>
       <section className='lista'>
@@ -49,7 +54,7 @@ export function Lista() {
           <input type="text" name="nome" id="nome" onChange={e => setNome(e.target.value)} placeholder='Escreva seu nome completo aqui' />
           <button type='button' className='btn' onClick={inscrever}>Colocar nome na lista agora</button>
         </form>
-        <Link to="/listas"><i className="bi bi-arrow-left-circle"> Voltar</i></Link>
+        <button type='button' className='btn' onClick={volta}><i className="bi bi-arrow-left-circle"></i> Voltar</button>
       </section>
     </main>
   )

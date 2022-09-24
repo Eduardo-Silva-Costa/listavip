@@ -7,7 +7,7 @@ import { doc, getDoc } from "firebase/firestore"
 
 export function Inscricoes() {
   const { id } = useParams()
-  const [lista, setLista] = useState({})
+  const [listaID, setListaID] = useState('')
   const [inscricoes, setInscricoes] = useState([])
 
   useEffect(() => {
@@ -16,7 +16,6 @@ export function Inscricoes() {
       const docSnap = await getDoc(docRef)
 
       if (docSnap.exists()) {
-        setLista({ id: docSnap.id, dados: docSnap.data() })
         setInscricoes(docSnap.data().inscricoes)
       } else {
         // doc.data() will be undefined in this case
@@ -31,17 +30,21 @@ export function Inscricoes() {
     (i) => <li>{i}</li>
   )
 
+  function volta() {
+
+    window.history.back();
+  }
+
   return (
     <main>
       <h2>Inscritos</h2>
       <section className='inscricoes'>
-        <p>Lista: {lista.dados.titulo}, Data: {lista.dados.data}, Total de inscritos: {lista.dados.inscricoes.length}</p>
         <ol>
           <>
             {inscritos}
           </>
         </ol>
-        <Link to={`/ver-lista/${lista.id}`}><i className="bi bi-arrow-left-circle"> Voltar</i></Link>
+        <button type='button' className='btn' onClick={volta}><i className="bi bi-arrow-left-circle"></i> Voltar</button>
       </section>
     </main>
   )

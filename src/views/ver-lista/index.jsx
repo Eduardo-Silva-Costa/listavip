@@ -49,6 +49,11 @@ export function VerLista() {
     }
   }
 
+  function volta() {
+
+    window.history.back();
+  }
+
   return (
     <main>
       <section>
@@ -65,7 +70,7 @@ export function VerLista() {
           <button type='button' className='btn__upload' onClick={atualizar}>Atualizar Lista</button>
           <button type='button' className='danger' >Excluir Lista</button>
         </form>
-        <Link to="/dashboard"><i className="bi bi-arrow-left-circle"> Voltar</i></Link>
+        <button type='button' className='btn' onClick={volta}><i className="bi bi-arrow-left-circle"></i> Voltar</button>
       </section>
     </main>
   )
