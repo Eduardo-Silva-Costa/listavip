@@ -25,7 +25,7 @@ export function Evento() {
 
       await updateDoc(docRef, {
         visualizacoes: cont + 1
-      });
+      })
     }
 
     getEvento()

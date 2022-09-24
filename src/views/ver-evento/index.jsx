@@ -9,13 +9,30 @@ export function VerEvento() {
   const { id } = useParams()
   const [evento, setEvento] = useState({})
 
+  const [titulo, setTitulo] = useState(evento.titulo)
+  const [tipo, setTipo] = useState(evento.tipo)
+  const [genero, setGenero] = useState(evento.genero)
+  const [detalhes, setDetalhes] = useState(evento.detalhes)
+  const [data, setData] = useState(evento.data)
+  const [hora, setHora] = useState(evento.hora)
+  const [censura, setCensura] = useState(evento.censura)
+
+  const docRef = doc(db, "eventos", id)
   useEffect(() => {
-    const docRef = doc(db, "eventos", id)
+
     async function getEvento() {
       const docSnap = await getDoc(docRef)
 
       if (docSnap.exists()) {
         setEvento(docSnap.data())
+
+        setTitulo(evento.titulo)
+        setTipo(evento.tipo)
+        setGenero(evento.genero)
+        setDetalhes(evento.detalhes)
+        setData(evento.data)
+        setHora(evento.hora)
+        setCensura(evento.censura)
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
@@ -25,22 +42,40 @@ export function VerEvento() {
     getEvento()
   }, [])
 
+  async function atualizar() {
+
+    var res = confirm('Tem certeza quer atualizar as informações do evento?')
+    if (res == true) {
+      await updateDoc(docRef, {
+        titulo: titulo,
+        tipo: tipo,
+        genero: genero,
+        detalhes: detalhes,
+        data: data,
+        hora: hora,
+        censura: censura
+      })
+
+      alert('Evento atualizado!')
+    }
+  }
+
   return (
     <main>
-      <section>
-        <h2>ver evento</h2>
+      <section className='upload'>
+        <h2>Atualizarou excluir evento</h2>
         <form>
           <label htmlFor="titulo">Título:</label>
-          <input type="text" name="titulo" id="titulo" value={evento.titulo} onChange={(e) => setTitulo(e.target.value)} />
+          <input type="text" name="titulo" id="titulo" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
           <label htmlFor="tipo">Tipo do evento:</label>
-          <select name="tipo" id="tipo" value={evento.tipo} onChange={(e) => setTipo(e.target.value)}>
+          <select name="tipo" id="tipo" value={tipo} onChange={(e) => setTipo(e.target.value)}>
             <option selected >-- escolher --</option>
             <option>Festa</option>
             <option>Festival</option>
             <option>Show</option>
           </select>
           <label htmlFor="genero">Gênero musical:</label>
-          <select name="genero" id="genero" value={evento.genero} onChange={(e) => setGenero(e.target.value)}>
+          <select name="genero" id="genero" value={genero} onChange={(e) => setGenero(e.target.value)}>
             <option selected value>-- escolher --</option>
             <option>Anos 80</option>
             <option>Baile da Sudade</option>
@@ -60,23 +95,23 @@ export function VerEvento() {
             <option>Sertanejo</option>
           </select>
           <label htmlFor="detalhes">Detalhes do Evento:</label>
-          <textarea name="detalhes" id="detalhes" cols="30" rows="5" value={evento.detalhes} onChange={(e) => setDetalhes(e.target.value)}></textarea>
+          <textarea name="detalhes" id="detalhes" cols="30" rows="10" value={detalhes} onChange={(e) => setDetalhes(e.target.value)}></textarea>
           <label htmlFor="data">Data:</label>
-          <input type="date" name="data" id="data" value={evento.data} onChange={(e) => setData(e.target.value)} />
+          <input type="date" name="data" id="data" value={data} onChange={(e) => setData(e.target.value)} />
           <label htmlFor="hora">Hora:</label>
-          <input type="time" name="hora" id="hora" value={evento.hora} onChange={(e) => setHora(e.target.value)} />
+          <input type="time" name="hora" id="hora" value={hora} onChange={(e) => setHora(e.target.value)} />
           <label htmlFor="censura">Censura:</label>
-          <select name="censura" id="censura" value={evento.censura} onChange={(e) => setCensura(e.target.value)}>
+          <select name="censura" id="censura" value={censura} onChange={(e) => setCensura(e.target.value)}>
             <option selected >-- escolher --</option>
             <option>18 anos</option>
             <option>16 anos</option>
             <option>14 anos</option>
             <option>Livre</option>
           </select>
-          <label htmlFor="flyer" className='label__file'>Escolher Flyer do Evento:</label>
-          <input type="file" name="flyer" id="flyer" onChange={(e) => setFlyer(e.target.files[0])} />
-          <button type='button' className='btn' >Publicar Evento</button>
+          <button type='button' className='btn__upload' onClick={atualizar}>Atualizar Evento</button>
+          <button type='button' className='danger' >Excluir Evento</button>
         </form>
+        <Link to="/dashboard"><i className="bi bi-arrow-left-circle"> Voltar</i></Link>
       </section>
     </main>
   )

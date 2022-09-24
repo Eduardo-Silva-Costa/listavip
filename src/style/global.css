@@ -75,10 +75,10 @@ i {
   color: #1a1a1a;
   border: none;
   background: #6a7dfe;
-  background: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
-  background: -o-linear-gradient(to left, #21d4fd, #b721ff);
-  background: -moz-linear-gradient(to left, #21d4fd, #b721ff);
-  background: linear-gradient(to left, #21d4fd, #b721ff);
+  background: -webkit-linear-gradient(to left, #7159c1, #ab93f9);
+  background: -o-linear-gradient(to left, #7159c1, #ab93f9);
+  background: -moz-linear-gradient(to left, #7159c1, #ab93f9);
+  background: linear-gradient(to left, #7159c1, #ab93f9);
   cursor: pointer;
 }
 

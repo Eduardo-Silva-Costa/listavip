@@ -33,7 +33,6 @@ export function MeusEventos() {
         <thead>
           <tr>
             <th>Titulo</th>
-            <th>Publico</th>
             <th>Visualizações</th>
             <th>Data</th>
             <th></th>
@@ -44,7 +43,6 @@ export function MeusEventos() {
             return (
               <tr>
                 <td>{evento.dados.titulo}</td>
-                <td>{evento.dados.publico == true ? 'Sim' : 'Não'}</td>
                 <td>{evento.dados.visualizacoes}</td>
                 <td>{evento.dados.data}</td>
                 <td><Link className='btn' to={`/ver-evento/${evento.id}`}>Ver Mais</Link></td>

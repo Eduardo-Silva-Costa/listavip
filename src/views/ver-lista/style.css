@@ -1,3 +1,31 @@
 .minhasListas a {
   padding: 0.4rem 1rem;
 }
+
+.danger {
+  margin-top: 1rem;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  border: none;
+  background: -webkit-linear-gradient(to left, red, #ff3021);
+  background: -o-linear-gradient(to left, red, #ff3021);
+  background: -moz-linear-gradient(to left, red, #ff3021);
+  background: linear-gradient(to left, red, #ff3021);
+  cursor: pointer;
+}
+
+.btn__upload {
+  margin-top: 1rem;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  border: none;
+  background: -webkit-linear-gradient(to left, rgb(0, 60, 255), #2185ff);
+  background: -o-linear-gradient(to left, rgb(0, 60, 255), #2185ff);
+  background: -moz-linear-gradient(to left, rgb(0, 60, 255), #2185ff);
+  background: linear-gradient(to left, rgb(0, 60, 255), #2185ff);
+  cursor: pointer;
+}

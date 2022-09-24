@@ -21,6 +21,7 @@ export function Lista() {
 
       if (docSnap.exists()) {
         setLista(docSnap.data())
+        setInscricoes(docSnap.data().inscricoes)
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
@@ -30,7 +31,7 @@ export function Lista() {
   }, [])
 
   async function inscrever() {
-    setInscricoes(arr => [...arr, nome])
+    setInscricoes([...inscricoes, nome])
 
     await updateDoc(docRef, {
       inscricoes: inscricoes

@@ -33,7 +33,6 @@ export function MinhasListas() {
         <thead>
           <tr>
             <th>Titulo</th>
-            <th>Publico</th>
             <th>Inscrições</th>
             <th>Data</th>
             <th></th>
@@ -44,7 +43,6 @@ export function MinhasListas() {
             return (
               <tr>
                 <td>{lista.dados.titulo}</td>
-                <td>{lista.dados.publico == true ? 'Sim' : 'Não'}</td>
                 <td>{lista.dados.inscricoes.length}</td>
                 <td>{lista.dados.data}</td>
                 <td><Link className='btn' to={`/ver-lista/${lista.id}`}>Ver Mais</Link></td>
