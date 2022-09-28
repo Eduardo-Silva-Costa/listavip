@@ -4,14 +4,12 @@ import { db } from '../../services/firebase'
 import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore"
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 
 export function Lista() {
   const { id } = useParams()
   const [lista, setLista] = useState({})
 
   const [nome, setNome] = useState('')
-  const [inscricoes, setInscricoes] = useState([])
 
   const docRef = doc(db, "listas", id)
 
@@ -22,7 +20,6 @@ export function Lista() {
       if (docSnap.exists()) {
         setLista(docSnap.data())
       } else {
-        // doc.data() will be undefined in this case
         console.log("No such document!");
       }
     }
@@ -38,7 +35,6 @@ export function Lista() {
   }
 
   function volta() {
-
     window.history.back();
   }
 
@@ -54,7 +50,11 @@ export function Lista() {
           <input type="text" name="nome" id="nome" onChange={e => setNome(e.target.value)} placeholder='Escreva seu nome completo aqui' />
           <button type='button' className='btn' onClick={inscrever}>Colocar nome na lista agora</button>
         </form>
-        <button type='button' className='btn' onClick={volta}><i className="bi bi-arrow-left-circle"></i> Voltar</button>
+        <div className="share">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://listavip.netlify.app" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+          <a href="https://api.whatsapp.com/send?text=http://listavip.netlify.app" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a>
+        </div>
+        <i className="bi bi-arrow-left-circle" onClick={volta}>Voltar</i>
       </section>
     </main>
   )

@@ -8,6 +8,23 @@
   height: 100%;
 }
 
+.share {
+  font-size: 1.25rem;
+  padding: 2rem 0;
+}
+
+.bi-facebook {
+  padding: 0.5rem;
+  color: #fff;
+  background-color: #3b5998;
+}
+
+.evento .bi-whatsapp {
+  padding: 0.5rem;
+  color: #fff;
+  background-color: #34af23;
+}
+
 @media (max-width: 900px) {
   .evento {
     flex-direction: column;

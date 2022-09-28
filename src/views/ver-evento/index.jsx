@@ -2,7 +2,7 @@ import './style.css'
 
 import { db } from '../../services/firebase';
 import { useParams } from 'react-router-dom'
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { deleteDoc, doc, getDoc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from 'react'
 
 export function VerEvento() {
@@ -26,15 +26,14 @@ export function VerEvento() {
       if (docSnap.exists()) {
         setEvento(docSnap.data())
 
-        setTitulo(evento.titulo)
-        setTipo(evento.tipo)
-        setGenero(evento.genero)
-        setDetalhes(evento.detalhes)
-        setData(evento.data)
-        setHora(evento.hora)
-        setCensura(evento.censura)
+        setTitulo(docSnap.data().titulo)
+        setTipo(docSnap.data().tipo)
+        setGenero(docSnap.data().genero)
+        setDetalhes(docSnap.data().detalhes)
+        setData(docSnap.data().data)
+        setHora(docSnap.data().hora)
+        setCensura(docSnap.data().censura)
       } else {
-        // doc.data() will be undefined in this case
         console.log("No such document!");
       }
     }
@@ -43,7 +42,7 @@ export function VerEvento() {
   }, [])
 
   async function atualizar() {
-    var res = confirm('Tem certeza quer atualizar as informações do evento?')
+    var res = confirm('Tem certeza quer atualizar o evento?')
 
     if (res == true) {
       await updateDoc(docRef, {
@@ -60,15 +59,24 @@ export function VerEvento() {
     }
   }
 
-  function volta() {
+  async function deletar() {
+    var res = confirm('Quer mesmo excluir o evento?')
 
+    if (res == true) {
+      await deleteDoc(docRef)
+
+      alert('Evento excluido!')
+    }
+  }
+
+  function volta() {
     window.history.back();
   }
 
   return (
     <main>
       <section className='upload'>
-        <h2>Atualizarou excluir evento</h2>
+        <h2>Atualizarou ou excluir evento</h2>
         <form>
           <label htmlFor="titulo">Título:</label>
           <input type="text" name="titulo" id="titulo" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
@@ -114,9 +122,9 @@ export function VerEvento() {
             <option>Livre</option>
           </select>
           <button type='button' className='btn__upload' onClick={atualizar}>Atualizar Evento</button>
-          <button type='button' className='danger' >Excluir Evento</button>
+          <button type='button' className='danger' onClick={deletar}>Excluir Evento</button>
         </form>
-        <button type='button' className='btn' onClick={volta}><i className="bi bi-arrow-left-circle"></i> Voltar</button>
+        <i className="bi bi-arrow-left-circle" onClick={volta}> Voltar</i>
       </section>
     </main>
   )

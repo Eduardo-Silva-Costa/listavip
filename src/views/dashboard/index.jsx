@@ -24,7 +24,7 @@ export function Dashboard() {
       <main>
         <section className='dashboard'>
           <div className="dash">
-            <p>Olá, {usuario.nome}</p>
+            <h3>Olá, {usuario.nome}</h3>
             <button type='button' className='btn' onClick={deslogar}>Sair</button>
           </div>
           <div className="contente">

@@ -44,7 +44,7 @@ export function Inscricoes() {
             {inscritos}
           </>
         </ol>
-        <button type='button' className='btn' onClick={volta}><i className="bi bi-arrow-left-circle"></i> Voltar</button>
+        <i className="bi bi-arrow-left-circle" onClick={volta}> Voltar</i>
       </section>
     </main>
   )

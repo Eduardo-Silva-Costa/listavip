@@ -2,7 +2,7 @@ import './style.css'
 
 import { db } from '../../services/firebase';
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 export function Evento() {
@@ -32,7 +32,6 @@ export function Evento() {
   }, [])
 
   function volta() {
-
     window.history.back();
   }
 
@@ -48,7 +47,11 @@ export function Evento() {
           <p><span>Hora:</span> {evento.hora}</p>
           <p><span>Detalhes:</span></p>
           <p>{evento.detalhes}</p>
-          <button type='button' className='btn' onClick={volta}><i className="bi bi-arrow-left-circle"></i> Voltar</button>
+          <div className="share">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://listavip.netlify.app" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+            <a href="https://api.whatsapp.com/send?text=http://listavip.netlify.app" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a>
+          </div>
+          <i className="bi bi-arrow-left-circle" onClick={volta}>Voltar</i>
         </div>
       </section>
     </main>

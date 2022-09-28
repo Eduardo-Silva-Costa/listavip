@@ -101,3 +101,7 @@ i {
   background-color: crimson;
   border: none;
 }
+
+i {
+  cursor: pointer;
+}

@@ -10,10 +10,12 @@ a {
   margin-top: 2rem;
 }
 
-.lista button {
-  margin-bottom: 2rem;
-}
-
 #nome {
   margin-bottom: 1rem;
+}
+
+.lista .bi-whatsapp {
+  padding: 0.5rem;
+  color: #fff;
+  background-color: #34af23;
 }
