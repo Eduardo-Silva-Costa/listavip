@@ -1,3 +1,12 @@
 .inscricoes ol {
   padding-left: 1.5rem;
 }
+
+.bi-filetype-pdf {
+  font-size: 2rem;
+  color: #1a1a1a;
+}
+
+.pdf {
+  margin: 1rem 0;
+}

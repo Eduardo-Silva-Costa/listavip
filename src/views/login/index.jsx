@@ -11,8 +11,6 @@ import { useContext } from 'react'
 
 export function Login() {
   const { usuario } = useContext(AuthContext)
-
-  console.log(usuario)
   function logar() {
     signInWithPopup(auth, provider).then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -20,6 +18,7 @@ export function Login() {
       const user = result.user;
 
       localStorage.setItem('user', JSON.stringify({ signed: true, id: user.uid, nome: user.displayName, email: user.email }))
+      location.reload()
 
     }).catch((error) => {
       const errorCode = error.code;
