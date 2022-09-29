@@ -21,7 +21,7 @@ export function Header() {
 
   return (
     <header>
-      <h1>Lista <span>Vip</span></h1>
+      <h1><a href="/">Lista <span>Vip</span></a></h1>
       <nav>
         <NavLink to="/">Eventos</NavLink>
         <NavLink to="/listas">Listas</NavLink>

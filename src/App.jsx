@@ -22,7 +22,6 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/' element={<Eventos />} />
           <Route path='/evento/:id' element={<Evento />} />
           <Route path='/listas' element={<Listas />} />
           <Route path='/lista/:id' element={<Lista />} />
@@ -33,6 +32,9 @@ function App() {
           <Route path='/ver-evento/:id' element={<VerEvento />} />
           <Route path='/ver-lista/:id' element={<VerLista />} />
           <Route path='/inscricoes/:id' element={<Inscricoes />} />
+
+          <Route exact path='/' element={<Eventos />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>
